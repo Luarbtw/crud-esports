@@ -31,6 +31,7 @@ class PlayerUpdate(BaseModel):
     role: Optional[Role] = None
     social: Optional[str] = None
     birth_date: Optional[date] = None
+    active: Optional[bool] = None
 
 class CoachCreate(BaseModel):
     name: str
@@ -57,6 +58,7 @@ class CoachUpdate(BaseModel):
     country: Optional[str] = None
     social: Optional[str] = None
     birth_date: Optional[date] = None
+    active: Optional[bool] = None
 
 
 

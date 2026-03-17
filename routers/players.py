@@ -28,7 +28,7 @@ def criar_player(player: PlayerCreate, db: Session = Depends(get_db)):
         country=player.country,
         role=player.role,
         social=player.social,
-        birth_date=player.birth_date,
+        birth_date=player.birth_date
     )
     db.add(new_player)
     db.commit()
@@ -52,11 +52,11 @@ def atualizar_player(id_player: int, player: PlayerUpdate, db: Session = Depends
 
 #deleta um player
 @router.delete("/players/{id_player}")
-def deletar_player(id_player: int, db:Session = Depends(get_db)):
+def deletar_player(id_player: int, db: Session = Depends(get_db)):
     deleted_player = db.query(Player).filter(Player.id_player == id_player).first()
     if not deleted_player:
         raise HTTPException(status_code=404, detail="Player not found!")
     
     db.delete(deleted_player)
     db.commit()
-    return {"message": "Player deleted with success"}
+    return {"message": "Player deleted successfully"}
