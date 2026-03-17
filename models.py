@@ -1,5 +1,8 @@
 from database import Base
+from enums import Role
+from sqlalchemy import Enum
 from sqlalchemy import Column, String, Integer, Boolean, Date
+
 
 class Player(Base):
     __tablename__ = "players"
@@ -7,7 +10,7 @@ class Player(Base):
     id_player = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, nullable=False)
     nickname = Column(String, nullable=False)
-    role = Column(String)
+    role = Column(Enum(Role))
     country = Column(String)
     active = Column(Boolean, default=True)
     social = Column(String)

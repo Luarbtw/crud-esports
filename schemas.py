@@ -1,14 +1,8 @@
 from pydantic import BaseModel
-from enum import Enum
 from typing import Optional
 from datetime import date
+from enums import Role
 
-class Role(str, Enum):
-    duelista = "duelista"
-    controlador = "controlador"
-    iniciador = "iniciador"
-    sentinela = "sentinela"
-    flex = "flex"
 
 class PlayerCreate(BaseModel):
     name: str
