@@ -5,13 +5,12 @@ from models import Player
 from schemas import PlayerCreate, PlayerResponse, PlayerUpdate
 
 router = APIRouter()
-#consulta uma lista de todos os players
+
 @router.get("/players", response_model=list[PlayerResponse])
 def listar_players(db: Session = Depends(get_db)):
     players = db.query(Player).all()
     return players 
 
-#consulta um player pelo id
 @router.get("/players/{id_player}", response_model=PlayerResponse)
 def buscar_player(id_player: int, db: Session = Depends(get_db)):
     player = db.query(Player).filter(Player.id_player == id_player).first()
@@ -19,7 +18,6 @@ def buscar_player(id_player: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Player not found!")
     return player
 
-#cria um novo player
 @router.post("/players", response_model=PlayerResponse)
 def criar_player(player: PlayerCreate, db: Session = Depends(get_db)):
     new_player = Player(
@@ -35,7 +33,6 @@ def criar_player(player: PlayerCreate, db: Session = Depends(get_db)):
     db.refresh(new_player)
     return(new_player)
 
-#atualiza um player
 @router.patch("/players/{id_player}", response_model=PlayerResponse)
 def atualizar_player(id_player: int, player: PlayerUpdate, db: Session = Depends(get_db)):
     db_player = db.query(Player).filter(Player.id_player == id_player).first()
@@ -50,7 +47,6 @@ def atualizar_player(id_player: int, player: PlayerUpdate, db: Session = Depends
     db.refresh(db_player)
     return db_player    
 
-#deleta um player
 @router.delete("/players/{id_player}")
 def deletar_player(id_player: int, db: Session = Depends(get_db)):
     deleted_player = db.query(Player).filter(Player.id_player == id_player).first()
