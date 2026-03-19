@@ -17,9 +17,23 @@ cd valorant-crud
 ```
 
 2. Create the virtual environment
+
+**Linux/macOS**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+```
+
+**Windows**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+or
+
+```bash
+py -m venv venv
+venv\Scripts\activate
 ```
 
 3. Install dependencies
@@ -31,6 +45,12 @@ pip install -r requirements.txt
 ```bash
 uvicorn main:app --reload
 ```
+
+## Frontend
+
+A frontend interface is available in the `frontend/` folder. Open `index.html` with the Live Server extension on VSCode.
+
+> Frontend design created with AI (Claude).
 
 5. Access the documentation
 http://localhost:8000/docs
