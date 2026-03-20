@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Free Agents</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">FREE<span>AGENTS</span></div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('players')">Players</button>
+    <button class="tab" onclick="switchTab('coaches')">Coaches</button>
+  </div>
+</header>
+
+<main>
+  <div class="api-note">
+    <strong>Note:</strong> This frontend connects to your API at <strong>localhost:8000</strong>. Make sure the server is running with <code>uvicorn main:app --reload</code>.
+  </div>
+
+  <div id="section-players" class="section active">
+    <div class="section-header">
+      <div class="section-title">
+        Players
+        <span>Free agents looking for a team</span>
+      </div>
+      <button class="btn btn-primary" onclick="openModal('player')">+ Register Player</button>
+    </div>
+    <div id="players-grid" class="grid"><div class="loading">Loading players...</div></div>
+  </div>
+
+  <div id="section-coaches" class="section">
+    <div class="section-header">
+      <div class="section-title">
+        Coaches
+        <span>Free agents looking for a team</span>
+      </div>
+      <button class="btn btn-primary" onclick="openModal('coach')">+ Register Coach</button>
+    </div>
+    <div id="coaches-grid" class="grid"><div class="loading">Loading coaches...</div></div>
+  </div>
+</main>
+
+<div id="modal-overlay" class="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div id="modal-title" class="modal-title"></div>
+    <div id="modal-form"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitForm()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
