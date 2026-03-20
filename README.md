@@ -8,12 +8,30 @@ API for registering esports proplayers and coaches, more specifically from the F
 - SQLAlchemy
 - SQLite
 
+## Endpoints
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/players` | List all players |
+| GET | `/players/{id}` | Get player by ID |
+| POST | `/players` | Register new player |
+| PATCH | `/players/{id}` | Update player data |
+| DELETE | `/players/{id}` | Remove player |
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/coaches` | List all coaches |
+| GET | `/coaches/{id}` | Get coach by ID |
+| POST | `/coaches` | Register new coach |
+| PATCH | `/coaches/{id}` | Update coach data |
+| DELETE | `/coaches/{id}` | Remove coach |
+
 ## How to run
 
 1. Clone the repository
 ```bash
 git clone https://github.com/Luarbtw/crud-esports.git
-cd valorant-crud
+cd crud-esports
 ```
 
 2. Create the virtual environment
@@ -56,4 +74,7 @@ A frontend interface is available in the `frontend/` folder. Open `index.html` w
 http://localhost:8000/docs
 
 ## Author
-Gustavo Farias — linkedin.com/in/gustavo-farias-712674302/
+
+Gustavo Farias — [linkedin.com/in/gustavo-farias-712674302](https://linkedin.com/in/gustavo-farias-712674302)
+
+
